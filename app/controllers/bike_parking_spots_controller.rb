@@ -3,14 +3,11 @@ class BikeParkingSpotsController < ApplicationController
 
   # GET /bike_parking_spots.json
   def index
-    # only use on production
-    current_user_location = request.location
-    
-    # only use in development and test
-    # current_user_location = '405 Howard Street San Francisco, CA, 94105'
-      # current_user_lat = 37.9000
-      # current_user_lon = -127.900
-
+    if Rails.env.test? || Rails.env.development?
+      current_user_location = '405 Howard Street San Francisco, CA, 94105'
+    else
+      current_user_location = request.address
+    end
     # if you want to list out the ones near you as well 
       # @bike_parking_spots_within_one_mile = BikeParkingSpot.near(@current_user_location, 0.3)
       # @bike_parking_spots = @bike_parking_spots_within_one_mile.paginate(:page => params[:page], :per_page => 9)
