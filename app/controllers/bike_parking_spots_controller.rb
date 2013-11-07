@@ -3,9 +3,11 @@ class BikeParkingSpotsController < ApplicationController
 
   # GET /bike_parking_spots.json
   def index
+    # only use on production
     current_user_location = request.location
-    # uncomment below with in development bc IP address lookup won't work
-      # current_user_location = '405 Howard Street San Francisco, CA, 94105'
+    
+    # only use in development and test
+    # current_user_location = '405 Howard Street San Francisco, CA, 94105'
       # current_user_lat = 37.9000
       # current_user_lon = -127.900
 
