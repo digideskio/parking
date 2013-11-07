@@ -1,13 +1,14 @@
-<h1>
+<h2 class="infowindow_title">
   <% unless object.no_address? %>
     <%= object.address %>
   <% else %>
     <%= object.location %>
   <% end %>
-</h1>
-
-<!-- if you decide to make map wider -->
-<!-- <div><%#= object.distance.round(0.01) %> miles away</div> -->
-
-<div><%= link_to 'More Information', controller: "bike_parking_spots", action: "show", id: object  %></div>
-<div><%= link_to "Map It", "http://maps.google.com/?ie=UTF8&hq=&ll=#{object.latitude},#{object.longitude}&z=200" %></div>
+</h2>
+<div class="infowindow_details"> 
+  <span>racks: <%= object.racks %> / spaces: <%= object.spaces %></span>
+  <!-- if you decide to make map wider -->
+  <!-- <div><%#= object.distance.round(0.01) %> miles away</div> -->
+  </br>
+  <div><%= link_to 'More Information', controller: "bike_parking_spots", action: "show", id: object  %> | <%= link_to "Map It", "http://maps.google.com/?ie=UTF8&hq=&ll=#{object.latitude},#{object.longitude}&z=200" %></div>
+<div>

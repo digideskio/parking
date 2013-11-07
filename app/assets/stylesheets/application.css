@@ -160,6 +160,25 @@ a:hover {font-size:120%;}
   margin: 0px auto 0px auto;
 }
 
+/* INFOWINDOW */
+
+h2.infowindow_title {
+  font-size: 110%;
+  margin: 0px;
+}
+
+.infowindow_details {
+  font-family: 'Raleway', sans-serif;
+}
+
+.infowindow_details span {
+  color: #ff7b6f; 
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+
+
 
 
 
