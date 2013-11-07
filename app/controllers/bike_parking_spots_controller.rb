@@ -7,6 +7,7 @@ class BikeParkingSpotsController < ApplicationController
       current_user_location = '405 Howard Street San Francisco, CA, 94105'
     else
       current_user_location = request.location.address
+      Rails.logger.info(current_user_location) 
     end
     # if you want to list out the ones near you as well 
       # @bike_parking_spots_within_one_mile = BikeParkingSpot.near(@current_user_location, 0.3)
