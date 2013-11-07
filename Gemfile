@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
@@ -36,10 +35,14 @@ group :development do
  gem 'better_errors'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'geocoder'
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'gmaps4rails'
+
+gem 'pry'
 
 # Use unicorn as the app server
 # gem 'unicorn'

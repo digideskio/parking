@@ -3,20 +3,28 @@ class BikeParkingSpotsController < ApplicationController
 
   # GET /bike_parking_spots.json
   def index
-    # in production get the ip address with this result variable
-    # @result = request.location
-    @bike_parking_spots_nearby = BikeParkingSpot.near('66 Mint St, San Francisco, California', 0.2)
-    @bike_parking_spots_within_one_mile = BikeParkingSpot.near('66 Mint St, San Francisco, California', 2)
-    @bike_parking_spots = @bike_parking_spots_within_one_mile.paginate(:page => params[:page], :per_page => 9)
+    # @current_user_location == request.location
+    current_user_location = '405 Howard Street San Francisco, CA, 94105'
+    current_user_lat = 37.9000
+    current_user_lon = -127.900
+    
+    @bike_parking_spots_nearby = BikeParkingSpot.near(current_user_location, 0.3)
+    # @bike_parking_spots_within_one_mile = BikeParkingSpot.near(@current_user_location, 0.3)
+    # @bike_parking_spots = @bike_parking_spots_within_one_mile.paginate(:page => params[:page], :per_page => 9)
+
+    # @my_current_point = Gmaps4Rails.build_marker(my_current_point) do |current_user_lat, current_user_lon |
+      # link.lat @current_user_lat
 
     @hash = Gmaps4rails.build_markers(@bike_parking_spots_nearby) do |bike_parking_spot, marker|
       marker.lat bike_parking_spot.latitude
       marker.lng bike_parking_spot.longitude
-      marker.infowindow bike_parking_spot.location 
+      marker.infowindow bike_parking_spot.location
+      marker.infowindow render_to_string(:partial => "bike_parking_spots/info_window.html.erb", :locals => { object: bike_parking_spot })
     end
   end
 
   def show
+
   end
 
   def new
@@ -56,8 +64,10 @@ class BikeParkingSpotsController < ApplicationController
   end
 
   def import 
-    BikeParkingSpot.import(params[:file])
-    redirect_to root_url, notice: "Uploaded Everything"
+    if params[:file]
+      BikeParkingSpot.import(params[:file])
+      redirect_to root_url, notice: "Uploaded Everything"
+    end
   end
 
   # DELETE /bike_parking_spots/1.json

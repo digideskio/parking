@@ -3,14 +3,15 @@ development:
   encoding: unicode
   database: bike_parking_san_fran_development
   host: localhost
-  username: bobbilee
-  password: 
 
 test:
   adapter: postgresql
   encoding: unicode
   database: bike_parking_san_fran_test
+  host: localhost 
+
+production:
+  adapter: postgresql
   host: localhost
-  username: bobbilee
-  password: 
+  database: bike_parking_san_fran_production
 

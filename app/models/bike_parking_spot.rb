@@ -8,4 +8,8 @@ class BikeParkingSpot < ActiveRecord::Base
     end
   end
 
+  def no_address?
+    true if self.address == "No Exact Address"
+  end
+
 end
