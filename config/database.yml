@@ -14,3 +14,9 @@ test:
   username: bobbilee
   password: 
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bike_parking_san_fran_production
+  host: localhost
+
