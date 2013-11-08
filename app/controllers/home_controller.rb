@@ -3,8 +3,8 @@ class HomeController < ApplicationController
     if Rails.env.test? || Rails.env.development?
       @current_user_location = '405 Howard Street San Francisco, CA, 94105'
     else
-      result = request.coordinates
-      @current_user_location = result
+      result = request.location
+      @current_user_location = result.coordinates
       Rails.logger.info(@current_user_location) 
     end
     # if you want to list out the ones near you as well 
