@@ -1,10 +1,11 @@
 == README
 
-This is an app is specifically made to geocode the closest bike parking spots in the San Francisco area by using the data from data.sfgov.org.It will give you a blank map if you are not within proper SF bounds. 
+This is app is specifically made to geocode the closest bike parking spots to you in the San Francisco area by using data from data.sfgov.org. 
 
-I have been working in Ruby, RoR for a little over a year. I focus mainly on backend development. My day to day does not usually work on the frontend. 
+IT WILL GIVE YOU A BLANK MAP IF YOU ARE NOT WITHIN SF bounds. 
+
+I have been working in Ruby, RoR for a year. I focus mainly on backend development, my day to day does not include work in frontend that is why I haven't implemented much js -- and I also wanted to keep it very simple so it didn't need any flashy js components. 
 
 See my recent interview with Femgineer.com: http://femgineer.com/2013/11/what-math
 
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
