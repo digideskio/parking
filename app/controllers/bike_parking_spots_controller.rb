@@ -16,13 +16,6 @@ class BikeParkingSpotsController < ApplicationController
   def show
   end
 
-  def import 
-    if params[:file]
-      BikeParkingSpot.import(params[:file])
-      redirect_to root_url, notice: "Uploaded Everything"
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bike_parking_spot
