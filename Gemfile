@@ -45,6 +45,8 @@ gem 'gmaps4rails'
 
 gem "figaro"
 
+gem 'haml-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
