@@ -1,17 +1,15 @@
 class HomeController < ApplicationController
   def home
+    
     if Rails.env.test? || Rails.env.development?
-      @current_user_location = '405 Howard Street San Francisco, CA, 94105'
+      current_user_address = 'San Francisco, CA 94105'
     else
-      result = request.location
-      @current_user_location = result.coordinates
-      Rails.logger.info(@current_user_location) 
+      current_user_address = request.location.address
     end
-    # if you want to list out the ones near you as well 
-      # @bike_parking_spots_within_one_mile = BikeParkingSpot.near(@current_user_location, 0.3)
-      # @bike_parking_spots = @bike_parking_spots_within_one_mile.paginate(:page => params[:page], :per_page => 9)
-    @bike_parking_spots_nearby = BikeParkingSpot.near(@current_user_location, 0.4)
-    @hash = Gmaps4rails.build_markers(@bike_parking_spots_nearby) do |bike_parking_spot, marker|
+
+    bike_parking_spots_nearby = BikeParkingSpot.near(current_user_address, 0.4)
+    
+    @hash = Gmaps4rails.build_markers(bike_parking_spots_nearby) do |bike_parking_spot, marker|
       marker.lat bike_parking_spot.latitude
       marker.lng bike_parking_spot.longitude
       marker.infowindow bike_parking_spot.location
@@ -19,6 +17,4 @@ class HomeController < ApplicationController
     end
   end
 
-  def import
-  end
 end

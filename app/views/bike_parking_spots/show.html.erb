@@ -10,7 +10,7 @@
   <p id="notice"><%= notice %></p>
 
   <div class="map">
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@bike_parking_spot.latitude}%2C#{@bike_parking_spot.longitude}" %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&maptype=roadmap&markers=#{@bike_parking_spot.latitude}%2C#{@bike_parking_spot.longitude}" %>
   </div>
 
   <div class="address_details">
@@ -25,9 +25,13 @@
       <span><%= @bike_parking_spot.racks %></span>
       <h2>Spaces:</h2>
       <span><%= @bike_parking_spot.spaces %></span>
+      <h2>Nearby locations</h2>
+      <% for bike_parking_spot in @bike_parking_spot.nearbys(0.2) %>
+        <span><%= link_to bike_parking_spot.location, "https://maps.google.com/maps?z=200&q=loc:#{@bike_parking_spot.latitude}+#{@bike_parking_spot.longitude}" %> (<%= bike_parking_spot.distance.round(0.2) %> miles)</span>
+      <% end %>
     </p>
   </div>
-
-  <%= link_to 'Back', bike_parking_spots_path %>
-
+  
 </div>
+
+
