@@ -5,6 +5,7 @@ class HomeController < ApplicationController
       current_user_address = 'San Francisco, CA 94105'
     else
       current_user_address = request.location.address
+      Rails.logger.info(current_user_address)
     end
 
     bike_parking_spots_nearby = BikeParkingSpot.near(current_user_address, 0.4)

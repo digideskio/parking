@@ -43,7 +43,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'gmaps4rails'
 
-gem "figaro"
+# gem "figaro"
 
 gem 'haml-rails'
 

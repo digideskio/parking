@@ -41,9 +41,6 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    figaro (0.7.0)
-      bundler (~> 1.0)
-      rails (>= 3, < 5)
     geocoder (1.1.8)
     gmaps4rails (2.0.3)
     haml (3.1.7)
@@ -136,7 +133,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   coffee-rails (~> 4.0.0)
-  figaro
   geocoder
   gmaps4rails
   haml-rails
