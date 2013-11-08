@@ -41,6 +41,13 @@
     <%= will_paginate @bike_parking_spots %>
   </div>
 
+
+  <h2> Import <h2>
+    <%= form_tag import_bike_parking_spots_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+ <% end %>
+
   <div class="line"></div>
 
 </div>

@@ -6,7 +6,9 @@ BikeParkingSanfran::Application.routes.draw do
   #   end
   # end
   
-  resources :bike_parking_spots
+  resources :bike_parking_spots do
+    collection { post :import }
+  end
 
   get "home/home"
   root 'home#home'
