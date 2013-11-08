@@ -33,6 +33,7 @@ end
 
 group :development do
  gem 'better_errors'
+ gem 'pry'
 end
 
 gem 'rails_12factor', group: :production
@@ -42,7 +43,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'gmaps4rails'
 
-gem 'pry'
+gem "figaro"
 
 # Use unicorn as the app server
 # gem 'unicorn'

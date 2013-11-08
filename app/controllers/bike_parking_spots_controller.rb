@@ -1,9 +1,8 @@
 class BikeParkingSpotsController < ApplicationController
   before_action :set_bike_parking_spot, only: [:show, :edit, :update, :destroy]
 
-  # GET /bike_parking_spots.json
   def index
-     if Rails.env.test? || Rails.env.development?
+    if Rails.env.test? || Rails.env.development?
       current_user_address = 'San Francisco, CA 94105'
     else
       current_user_address = request.location.address
@@ -11,6 +10,7 @@ class BikeParkingSpotsController < ApplicationController
     
     within_one_mile = BikeParkingSpot.near(current_user_address, 0.4)
     @bike_parking_spots = within_one_mile.paginate(:page => params[:page], :per_page => 9)
+    
   end
 
   def show

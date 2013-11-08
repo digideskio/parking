@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
+  
   def home
-    
     if Rails.env.test? || Rails.env.development?
       current_user_address = 'San Francisco, CA 94105'
     else

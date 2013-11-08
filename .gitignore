@@ -9,3 +9,6 @@ vendor/*
 coverage*
 rack-insight.sqlite
 public/uploads/*
+
+# Ignore application configuration
+/config/application.yml
