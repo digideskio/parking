@@ -33,7 +33,6 @@ end
 
 group :development do
  gem 'better_errors'
- gem 'heroku_san'
 end
 
 gem 'rails_12factor', group: :production
