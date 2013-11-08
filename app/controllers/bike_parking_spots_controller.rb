@@ -6,21 +6,27 @@ class BikeParkingSpotsController < ApplicationController
     if Rails.env.test? || Rails.env.development?
       current_user_location = '405 Howard Street San Francisco, CA, 94105'
     else
-      current_user_location = request.location.address
+      result.geocode
+      current_user_location = result.address
       Rails.logger.info(current_user_location) 
     end
     # if you want to list out the ones near you as well 
       # @bike_parking_spots_within_one_mile = BikeParkingSpot.near(@current_user_location, 0.3)
       # @bike_parking_spots = @bike_parking_spots_within_one_mile.paginate(:page => params[:page], :per_page => 9)
  
-    @bike_parking_spots_nearby = BikeParkingSpot.near(current_user_location, 0.3)
-  
-    @hash = Gmaps4rails.build_markers(@bike_parking_spots_nearby) do |bike_parking_spot, marker|
-      marker.lat bike_parking_spot.latitude
-      marker.lng bike_parking_spot.longitude
-      marker.infowindow bike_parking_spot.location
-      marker.infowindow render_to_string(:partial => "bike_parking_spots/info_window.html.erb", :locals => { object: bike_parking_spot })
+    @bike_parking_spots_nearby = BikeParkingSpot.near(current_user_location, 0.4)
+    unless @bike_parking_spots_nearby.empty?
+      redirect_to root_url, flash: {confirm:"Check Back Soon, App Only Available for San Francisco Peeps"}
+    else 
+      @hash = Gmaps4rails.build_markers(@bike_parking_spots_nearby) do |bike_parking_spot, marker|
+        marker.lat bike_parking_spot.latitude
+        marker.lng bike_parking_spot.longitude
+        marker.infowindow bike_parking_spot.location
+        marker.infowindow render_to_string(:partial => "bike_parking_spots/info_window.html.erb", :locals => { object: bike_parking_spot })
+      end
     end
+
+
   end
 
   def show
