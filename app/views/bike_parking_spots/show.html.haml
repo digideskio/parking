@@ -1,0 +1,27 @@
+%div{role: "main"}
+  #header
+    .container_show
+      %h1 This Bike Rack is Less  Than One Mile Away
+  .line
+  %p#notice= notice
+  .map
+    = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&maptype=roadmap&markers=#{@bike_parking_spot.latitude}%2C#{@bike_parking_spot.longitude}"
+  .address_details
+    %p
+      - if @bike_parking_spot.location
+        %h2 Location/Building:
+        %span
+          = @bike_parking_spot.location
+          %span
+      - if @bike_parking_spot.address
+        %h2 Address:
+        %span
+          = link_to @bike_parking_spot.address, "https://maps.google.com/maps?z=200&q=loc:#{@bike_parking_spot.latitude}+#{@bike_parking_spot.longitude}"
+          (click for directions)
+          %span
+    %h2 Placement:
+    %span= @bike_parking_spot.placement
+    %h2 Rakes:
+    %span= @bike_parking_spot.racks
+    %h2 Spaces:
+    %span= @bike_parking_spot.spaces
