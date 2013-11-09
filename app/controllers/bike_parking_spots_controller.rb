@@ -2,16 +2,9 @@ class BikeParkingSpotsController < ApplicationController
   before_action :set_bike_parking_spot, only: [:show, :edit, :update, :destroy]
 
   def index
-    if Rails.env.test? || Rails.env.development?
-      current_user_address = '405 Howard Street, San Francisco, CA, 94105'
-    else
-      current_user_address = request.location.address
-    end
     
-    @bike_parking_spots_nearby = BikeParkingSpot.near(current_user_address, 0.3)
-    
-    unless @bike_parking_spots_nearby.empty?
-      @bike_parking_spots = @bike_parking_spots_nearby.paginate(:page => params[:page], :per_page => 5)
+    if BikeParkingSpot.has_something_near?
+      @bike_parking_spots = BikeParkingSpot.closest_to_user.paginate(:page => params[:page], :per_page => 5)
     else
       flash.now[:notice] = "Are you in San Fran? I don't think so..."
     end
