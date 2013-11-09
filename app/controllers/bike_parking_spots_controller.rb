@@ -9,8 +9,8 @@ class BikeParkingSpotsController < ApplicationController
       Rails.logger.info(current_user_address)
     end
     
-    # within_one_mile = BikeParkingSpot.near(current_user_address, 0.4)
-    # @bike_parking_spots = within_one_mile.paginate(:page => params[:page], :per_page => 9)
+    within_one_mile = BikeParkingSpot.near(current_user_address, 0.4)
+    @bike_parking_spots = within_one_mile.paginate(:page => params[:page], :per_page => 9)
     
   end
 
@@ -20,7 +20,7 @@ class BikeParkingSpotsController < ApplicationController
   def import 
     if params[:file]
       BikeParkingSpot.import(params[:file])
-      redirect_to bike_parking_spots_path, notice: "Uploaded Everything"
+      redirect_to root_url, notice: "Uploaded Everything"
     end
   end
 
