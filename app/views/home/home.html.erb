@@ -4,7 +4,11 @@
 
   <div id="header">
     <div class="container_home">
-      <h1> These are the </br> Bike Racks Near You </h1>
+      <% unless notice.present? %>
+        <h1> These Bike Racks</br> Are Near You </h1>
+      <% else %>
+        <h1><%= notice %></h1>
+      <% end %>
     </div>
   </div>
 

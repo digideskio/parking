@@ -15,20 +15,25 @@
 
   <div class="address_details">
     <p>
-      <h2>Location/Building:</h2>
-      <span><%= @bike_parking_spot.location %><span>
-      <h2>Address:</h2>
-      <span><%= @bike_parking_spot.address %><span>
+      <% if @bike_parking_spot.location %>
+        <h2>Location/Building:</h2>
+        <span><%= @bike_parking_spot.location %><span>
+      <% end %>
+
+      <% if @bike_parking_spot.address %>
+        <h2>Address:</h2>
+        <span><%= @bike_parking_spot.address %><span>
+      <% end %>
+
       <h2>Placement:</h2>
       <span><%= @bike_parking_spot.placement %></span>
+      
       <h2>Rakes:</h2>
       <span><%= @bike_parking_spot.racks %></span>
+      
       <h2>Spaces:</h2>
       <span><%= @bike_parking_spot.spaces %></span>
-      <h2>Nearby locations</h2>
-      <% for bike_parking_spot in @bike_parking_spot.nearbys(0.2) %>
-        <span><%= link_to bike_parking_spot.location, "https://maps.google.com/maps?z=200&q=loc:#{@bike_parking_spot.latitude}+#{@bike_parking_spot.longitude}" %> (<%= bike_parking_spot.distance.round(0.2) %> miles)</span>
-      <% end %>
+      
     </p>
   </div>
   
