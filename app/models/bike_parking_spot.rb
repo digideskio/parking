@@ -16,4 +16,8 @@ class BikeParkingSpot < ActiveRecord::Base
     near(CURRENT_USER_ADDRESS, 0.3)
   end
 
+  def self.has_something_near?
+    true unless closest_to_user.empty?
+  end
+
 end

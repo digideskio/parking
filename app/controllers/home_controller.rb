@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       marker.lat bike_parking_spot.latitude
       marker.lng bike_parking_spot.longitude
       marker.infowindow bike_parking_spot.location
-      marker.infowindow render_to_string(:partial => "bike_parking_spots/info_window.html.erb", :locals => { object: bike_parking_spot })
+      marker.infowindow render_to_string(:partial => "bike_parking_spots/info_window.html.haml", :locals => { object: bike_parking_spot })
     end
   end
 
