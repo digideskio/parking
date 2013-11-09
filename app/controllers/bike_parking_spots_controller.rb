@@ -3,14 +3,14 @@ class BikeParkingSpotsController < ApplicationController
 
   def index
     if Rails.env.test? || Rails.env.development?
-      current_user_address = 'San Francisco, CA 94105'
+      current_user_address = '405 Howard Street San Francisco, CA, 94105'
     else
       current_user_address = request.location.address
       Rails.logger.info(current_user_address)
     end
     
-    within_one_mile = BikeParkingSpot.near(current_user_address, 0.4)
-    @bike_parking_spots = within_one_mile.paginate(:page => params[:page], :per_page => 9)
+    # within_one_mile = BikeParkingSpot.near(current_user_address, 0.4)
+    # @bike_parking_spots = within_one_mile.paginate(:page => params[:page], :per_page => 9)
     
   end
 
@@ -20,7 +20,7 @@ class BikeParkingSpotsController < ApplicationController
   def import 
     if params[:file]
       BikeParkingSpot.import(params[:file])
-      redirect_to root_url, notice: "Uploaded Everything"
+      redirect_to bike_parking_spots_path, notice: "Uploaded Everything"
     end
   end
 

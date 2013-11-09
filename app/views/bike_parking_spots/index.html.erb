@@ -6,40 +6,7 @@
     </div>
   </div>
 
-  <div class="line"></div>
-  <table class="all_bike_parking_spots">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Address</th>
-        <th>Placement</th>
-        <th>Racks</th>
-        <th>Spaces</th>
-        <th>Mile(s) Away</th>
-        <th></th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @bike_parking_spots.each do |bike_parking_spot| %>
-        <tr>
-          <td><%= bike_parking_spot.location %></td>
-          <td><%= bike_parking_spot.address %></td>
-          <td><%= bike_parking_spot.placement %></td>
-          <td><%= bike_parking_spot.racks %></td>
-          <td><%= bike_parking_spot.spaces %></td>
-          <td><%= bike_parking_spot.distance.round(0.01) %> miles</td>
-          <td><%= link_to 'Map', bike_parking_spot, id: 'show_link'%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 
-  <div class="line"></div>
-
-  <div class="page_links">
-    <%= will_paginate @bike_parking_spots %>
-  </div>
 
 
   <h2> Import <h2>
