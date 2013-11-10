@@ -1,0 +1,35 @@
+//*= require_self
+//*= require bike_parking_spot
+//*= require bike_parking_spots
+//*= require layout
+//*= require map_pop_up
+//*= require reset
+//*= require shared
+
+#nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  background: #f2f1eb;
+  font-family: "Raleway", sans-serif;
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  li {
+    float: left;
+    a {
+      display: block;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #025950;
+      border-right: 1px solid #cccccc;
+    }
+  }
+}
+
+.nav_link {
+  color: #0099ff;
+}
+

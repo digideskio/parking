@@ -11,5 +11,13 @@
   %body
     = yield
   %footer
-    %h2= link_to 'Going Somewhere Else?', bike_parking_spots_path
-    %h2= link_to 'Home', root_url
+    %ul#nav
+      %li
+        = link_to_unless_current "List", bike_parking_spots_path do |name|
+          - "<strong class='nav_link'>#{name}</strong>".html_safe
+      %li
+        = link_to_unless_current "Map", root_url do |name|
+          - "<strong class='nav_link'>#{name}</strong>".html_safe
+      %li
+        = link_to_unless_current "About Me", "http://www.bobbileehartman.com", target: "_blank"
+

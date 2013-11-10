@@ -3,8 +3,8 @@ class BikeParkingSpotsController < ApplicationController
 
   def index
     
-    if BikeParkingSpot.has_something_near?
-      @bike_parking_spots = BikeParkingSpot.closest_to_user.paginate(:page => params[:page], :per_page => 5)
+    if BikeParkingSpot.has_something_near?(current_user_address)
+      @bike_parking_spots = BikeParkingSpot.closest_to_user(current_user_address).paginate(:page => params[:page], :per_page => 5)
     else
       flash.now[:notice] = "Are you in San Fran? I don't think so..."
     end

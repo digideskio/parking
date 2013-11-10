@@ -1,0 +1,37 @@
+#header {
+  margin: 0px auto;
+  h1 {
+    padding: 28px;
+    color: #f2f1eb;
+    font-family: "Ultra", serif;
+    font-size: 400%;
+    font-weight: 300;
+    text-align: center;
+    text-shadow: 1px 1px 0px black;
+  }
+}
+
+h2 {
+  font-family: "Ultra", serif;
+  font-size: 130%;
+  margin: 20px;
+}
+
+img {
+  padding-left: 20px;
+}
+
+a {
+  &:link, &:visited {
+    color: #025950;
+  }
+  &:hover {
+    font-size: 120%;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 50px;
+  background: #f2f1eb;
+}

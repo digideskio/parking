@@ -12,12 +12,12 @@ class BikeParkingSpot < ActiveRecord::Base
     true if self.address == "No Exact Address"
   end
 
-  def self.closest_to_user
-    near(CURRENT_USER_ADDRESS, 0.3)
+  def self.closest_to_user(location)
+    near(location, 0.3)
   end
 
-  def self.has_something_near?
-    true unless closest_to_user.empty?
+  def self.has_something_near?(location)
+    true unless closest_to_user(location).empty?
   end
 
 end

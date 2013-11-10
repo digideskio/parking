@@ -1,11 +1,11 @@
 %div{role: "main"}
   #header
-    .container_home
+    .container
       - unless notice.present?
         %h1 These Bike Racks  Are Near You
       - else
         %h1= notice
-  - if BikeParkingSpot.has_something_near?
+  
     .line
     %table.all_bike_parking_spots
       %thead
@@ -26,7 +26,7 @@
             %td= bike_parking_spot.racks
             %td= bike_parking_spot.spaces
             %td= link_to "Details", bike_parking_spot
-            %td= link_to "Map", "https://maps.google.com/maps?z=200&q=loc:#{bike_parking_spot.latitude}+#{bike_parking_spot.longitude}"
+            %td= link_to "Map", "https://maps.google.com/maps?z=200&q=loc:#{bike_parking_spot.latitude}+#{  bike_parking_spot.longitude}"
     .line
     .page_links
       = will_paginate @bike_parking_spots
