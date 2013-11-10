@@ -5,28 +5,30 @@
         %h1 These Bike Racks  Are Near You
       - else
         %h1= notice
+
   
     .line
-    %table.all_bike_parking_spots
-      %thead
-        %tr
-          %th Location
-          %th Address
-          %th Type of Rack
-          %th Racks
-          %th Spaces
-          %th Extra:
-          %th
-      %tbody
-        - @bike_parking_spots.each do |bike_parking_spot|
+    - unless @bike_parking_spots.empty? 
+      %table.all_bike_parking_spots
+        %thead
           %tr
-            %td= bike_parking_spot.location
-            %td= bike_parking_spot.address
-            %td= bike_parking_spot.placement
-            %td= bike_parking_spot.racks
-            %td= bike_parking_spot.spaces
-            %td= link_to "Details", bike_parking_spot
-            %td= link_to "Map", "https://maps.google.com/maps?z=200&q=loc:#{bike_parking_spot.latitude}+#{  bike_parking_spot.longitude}"
+            %th Location
+            %th Address
+            %th Type of Rack
+            %th Racks
+            %th Spaces
+            %th Extra:
+            %th
+        %tbody
+          - @bike_parking_spots.each do |bike_parking_spot|
+            %tr
+              %td= bike_parking_spot.location
+              %td= bike_parking_spot.address
+              %td= bike_parking_spot.placement
+              %td= bike_parking_spot.racks
+              %td= bike_parking_spot.spaces
+              %td= link_to "Details", bike_parking_spot
+              %td= link_to "Map", "https://maps.google.com/maps?z=200&q=loc:#{bike_parking_spot.latitude}+#{  bike_parking_spot.longitude}"
     .line
     .page_links
       = will_paginate @bike_parking_spots
