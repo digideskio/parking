@@ -1,16 +1,27 @@
 .all_bike_parking_spots {
   font-size: 100%;
-  line-height: 2em;
+  line-height: 3em;
   text-align: center;
   width: 100%;
   font-family: "Raleway", sans-serif;
   background: #e5e6d6;
-  padding-bottom: 30px;
   th {
     font-size: 150%;
     font-weight: bold;
     padding-top: 10px;
   }
+  td {
+    border: 1px solid #CCC;
+    padding: 0 0.5em;
+  }
+  td:first-child {
+    width: 202px;
+  }
+  td+td {
+    border-left: 1px solid #CCC;
+    text-align: center;
+  }
+  
 }
 
 .page_links {
@@ -21,4 +32,7 @@
   text-align: center;
   color: white;
 }
+
+
+
 

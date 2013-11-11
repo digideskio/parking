@@ -10,18 +10,19 @@
     %p
       - if @bike_parking_spot.location
         %h2 Location/Building:
-        %span
+        .info
           = @bike_parking_spot.location
-          %span
       - if @bike_parking_spot.address
         %h2 Address:
-        %span
+        .info
           = link_to @bike_parking_spot.address, "https://maps.google.com/maps?z=200&q=loc:#{@bike_parking_spot.latitude}+#{@bike_parking_spot.longitude}"
           (click for directions)
-          %span
     %h2 Placement:
-    %span= @bike_parking_spot.placement
+    .info
+      = @bike_parking_spot.placement
     %h2 Rakes:
-    %span= @bike_parking_spot.racks
-    %h2 Spaces:
-    %span= @bike_parking_spot.spaces
+    .info
+      = @bike_parking_spot.racks
+    %h2 Spaces:   
+    .info
+      = @bike_parking_spot.spaces

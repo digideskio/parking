@@ -6,7 +6,6 @@
       - else
         %h1= notice
 
-  
     .line
     - unless @bike_parking_spots.blank?
       %table.all_bike_parking_spots
@@ -17,7 +16,7 @@
             %th Type of Rack
             %th Racks
             %th Spaces
-            %th Extra:
+            %th
             %th
         %tbody
           - @bike_parking_spots.each do |bike_parking_spot|
