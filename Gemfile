@@ -36,6 +36,16 @@ group :development do
  gem 'pry'
 end
 
+group :test, :development do
+  gem "rspec-rails"
+end
+
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
 gem 'rails_12factor', group: :production
 
 gem 'geocoder'
