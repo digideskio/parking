@@ -8,6 +8,7 @@ protected
       session[:current_user_address] ||= '405 Howard Street, San Francisco, CA, 94105'
     else
       session[:current_user_address] ||= request.location.address
+      Rails.logger.info(current_user_address)
     end
   end
 
