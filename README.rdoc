@@ -1,13 +1,33 @@
 == README
 
-This is app is specifically made to geocode the closest bike parking spots to you in the San Francisco area by using data from data.sfgov.org. 
+This app is specifically made to geocode the closest bike parking spots to you in the San Francisco area by using data from data.sfgov.org. 
 
-See = bike-parking-sanfran.herokuapp.com/api/v1/bike_parking_spots
+For API / JSON of all parking spots:
+bike-parking-sanfran.herokuapp.com/api/v1/bike_parking_spots
 
-IT WILL GIVE YOU A BLANK MAP IF YOU ARE NOT WITHIN SF bounds. 
+Important Note:
+This will render a blank map if you are outside of SF bounds. 
 
-I have been working in Ruby, RoR for a year. I focus mainly on backend development, my day to day does not include work in frontend that is why I haven't implemented much js -- and I also wanted to keep it very simple so it didn't need any flashy js components. 
+Google maps v3 doesn't require you to use your API key, but in order for it to work on the iPhone do this:
+1. Uncomment "figaro" in gemfile 
+2. Command line run: 
+  rails generate figaro:install
+2. In application.yml (new file, automatically added to .gitignore)
+  GOOGLE_MAPS_API_KEY = your_super_secret_key
+3. Command line run: 
+  heroku config:add GOOGLE_MAPS_API_KEY=your_super_secret_key
+4. Optionally, you can pass in the name of the Heroku app:
+  rake figaro:heroku[bike-parking-sanfran]
+5. Then to double check it was added run:
+  heroku config
+5. Change this link to have the key instead of v=3.13... 
+<script src="//maps.google.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&sensor=false&libraries=geometry" type="text/javascript"></script>
 
-See my recent interview with Femgineer.com: http://femgineer.com/2013/11/what-math
+More info about figaro gem: https://github.com/laserlemon/figaro 
 
-<tt>rake doc:app</tt>.
+About Me:
+I have been working in Ruby, RoR for a year now. At work I mainly focus on backend development. I like to rock climb and learn about bourbon :) 
+
+See my recent interview with Femgineer.com: 
+http://femgineer.com/2013/11/what-math
+
