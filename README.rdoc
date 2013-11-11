@@ -5,6 +5,8 @@ This app is specifically made to geocode the closest bike parking spots to you i
 For API / JSON of all parking spots:
 bike-parking-sanfran.herokuapp.com/api/v1/bike_parking_spots
 
+See the test branch for the rspec tests I'm working on.
+
 Important Note:
 This will render a blank map if you are outside of SF bounds. 
 
